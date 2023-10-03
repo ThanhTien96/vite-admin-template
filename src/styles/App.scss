@@ -1,0 +1,13 @@
+@import './_variable.scss';
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+};
+
+html, body {
+  font-size: 16px;
+  background-color: $app-white;
+  color: $app-black;
+}

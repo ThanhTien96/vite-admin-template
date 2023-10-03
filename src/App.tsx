@@ -1,11 +1,15 @@
-import { Router } from 'components/wrapper'
-import './styles/App.scss'
-import { pagePath } from 'constants'
+import { Router, StoreProvider, ThemeProvider } from "components/wrapper";
+import "./styles/App.scss";
+import { pagePath } from "constants";
 
 function App() {
   return (
-    <Router defaultRoute={pagePath.home} />
-  )
+    <StoreProvider>
+      <ThemeProvider>
+        <Router defaultRoute={pagePath.home} />
+      </ThemeProvider>
+    </StoreProvider>
+  );
 }
 
-export default App
+export default App;

@@ -2,7 +2,7 @@
 const pagePath = {
     default: "",
     home: "home",
-    login: "sigin"
+    login: "login"
 };
 
 export default pagePath;

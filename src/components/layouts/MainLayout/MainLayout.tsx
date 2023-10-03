@@ -21,7 +21,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({children}) => {
   } = theme.useToken();
 
   return (
-    <Layout>
+    <Layout className='h-screen flex-row '>
       <Sider trigger={null} collapsible collapsed={collapsed}>
         <div className="demo-logo-vertical" />
         <Menu
@@ -47,7 +47,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({children}) => {
           ]}
         />
       </Sider>
-      <Layout>
+      <Layout className='site-layout'>
         <Header style={{ padding: 0, background: colorBgContainer }}>
           <Button
             type="text"

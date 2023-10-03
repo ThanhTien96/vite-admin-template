@@ -4,7 +4,9 @@ import React from 'react';
 import { MainLayout } from "components/layouts";
 import { NotFoundPage } from "pages";
 
+
 const Home = React.lazy(() => import('pages/HomePage'))
+const Login = React.lazy(() => import('pages/LoginPage'));
 
 
 const extendedRoutes: RouteObject[] = [
@@ -30,6 +32,10 @@ const routes: RouteObject[] = [
                 element: <NotFoundPage />
             }
         ]
+    },
+    {
+        path: pagePath.login,
+        element: <Login />
     }
 ]
 

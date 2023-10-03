@@ -1,7 +1,8 @@
 
 const pagePath = {
     default: "",
-    home: "home"
+    home: "home",
+    login: "sigin"
 };
 
 export default pagePath;

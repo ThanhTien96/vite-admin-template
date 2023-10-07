@@ -10,6 +10,7 @@ const instance: ThemeConfig = {
     Layout: {
       headerBg: "#ffffff",
       triggerBg: "#cdcdcd",
+      siderBg: "#ffffff"
     },
   },
 };

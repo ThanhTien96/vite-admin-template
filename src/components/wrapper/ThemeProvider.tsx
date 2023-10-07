@@ -24,14 +24,14 @@ const ThemeProvider = ({children}: ThemeProviderProps) => {
     }),
     [selectedThemeKey, colorPrimary]
   );
-  console.log("☣️ >>> ThemeProvider >>> selectedTheme: ", selectedTheme)
+
   return (
     <>
       <Global
         styles={{
           ".ant-layout-sider-trigger": {
             backgroundColor:
-              selectedTheme && selectedTheme.components?.Layout?.colorBgTrigger,
+              selectedTheme && selectedTheme.components?.Layout?.triggerBg,
           },
         }}
       />

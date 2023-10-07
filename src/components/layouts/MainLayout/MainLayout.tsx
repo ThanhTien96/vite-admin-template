@@ -1,75 +1,87 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
+import { Layout, Menu, Button, theme, Typography } from "antd";
 import {
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
-  UploadOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-} from '@ant-design/icons';
-import { Layout, Menu, Button, theme } from 'antd';
-
+  NotificationButton,
+  SearchEngine,
+  menus,
+  QuestionButton,
+  AccountButton,
+} from "./partials";
+import { useNavigate } from "react-router";
+import { Footer } from "antd/es/layout/layout";
+import { COPY_RIGHT } from "constants";
 const { Header, Sider, Content } = Layout;
+import "./AppLayout.style.less";
+import { useAppSelector } from "store";
 
 type MainLayoutProps = {
-    children: React.ReactNode;
-}
+  children: React.ReactNode;
+};
 
-const MainLayout: React.FC<MainLayoutProps> = ({children}) => {
+const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   const [collapsed, setCollapsed] = useState(false);
-  const {
-    token: { colorBgContainer },
-  } = theme.useToken();
+  const navigate = useNavigate();
+  const { token } = theme.useToken();
+
+  // handle navigate
+  const handleNavigate = ({ key: path }: { key: React.Key }) => {
+    navigate(path as string);
+  };
+
+  const handleToggle = (value: boolean) => setCollapsed(value);
 
   return (
-    <Layout className='h-screen flex-row '>
-      <Sider trigger={null} collapsible collapsed={collapsed}>
-        <div className="demo-logo-vertical" />
+    <Layout hasSider className="h-screen flex-row">
+      <Sider
+        style={{
+          overflow: "auto",
+          height: "100vh",
+          background: token?.Layout?.siderBg,
+        }}
+        onCollapse={handleToggle}
+        trigger={null}
+        collapsible
+        collapsed={collapsed}
+      >
+        <div className="logo" />
         <Menu
-          theme="dark"
+          className="border-none"
           mode="inline"
-          defaultSelectedKeys={['1']}
-          items={[
-            {
-              key: '1',
-              icon: <UserOutlined />,
-              label: 'nav 1',
-            },
-            {
-              key: '2',
-              icon: <VideoCameraOutlined />,
-              label: 'nav 2',
-            },
-            {
-              key: '3',
-              icon: <UploadOutlined />,
-              label: 'nav 3',
-            },
-          ]}
+          onClick={handleNavigate}
+          defaultSelectedKeys={["1"]}
+          items={menus}
         />
       </Sider>
-      <Layout className='site-layout'>
-        <Header style={{ padding: 0, background: colorBgContainer }}>
-          <Button
-            type="text"
-            icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-            onClick={() => setCollapsed(!collapsed)}
-            style={{
-              fontSize: '16px',
-              width: 64,
-              height: 64,
-            }}
-          />
+      <Layout className="site-layout">
+        <Header className="site-layout-header">
+          {/* right items */}
+          <div className="flex items-center justify-around gap-4">
+            <Button
+              type="text"
+              icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+              onClick={() => setCollapsed(!collapsed)}
+              style={{
+                fontSize: "16px",
+                width: 32,
+                height: 32,
+              }}
+            />
+            <SearchEngine />
+          </div>
+          {/* left items */}
+          <div className="flex justify-end items-center gap-4">
+            <QuestionButton />
+            <NotificationButton />
+            <AccountButton />
+          </div>
         </Header>
-        <Content
-          style={{
-            margin: '24px 16px',
-            padding: 24,
-            minHeight: 280,
-            background: colorBgContainer,
-          }}
-        >
-            {children}
+        <Content className="h-auto overflow-y-scroll main-container">
+          {children}
         </Content>
+        <Footer style={{ textAlign: "center", padding: 5 }}>
+          {COPY_RIGHT}
+        </Footer>
       </Layout>
     </Layout>
   );

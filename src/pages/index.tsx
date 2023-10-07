@@ -7,3 +7,4 @@ export const ServerErrorPage = ErrorPage[500];
 export {default as HomePate} from './HomePage';
 export {default as LoadingPage} from './LoadingPage';
 export {default as LoginPage} from './LoginPage';
+export {default as SettingPage} from './SettingPage';

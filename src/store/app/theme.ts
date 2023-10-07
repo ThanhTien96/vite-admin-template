@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { SizeType } from "antd/es/config-provider/SizeContext";
 
-
 export type ThemeType = 'default' | 'dark';
 
 interface ThemeSliceStateType {
@@ -15,7 +14,7 @@ interface ThemeSliceStateType {
 
 const initialState: ThemeSliceStateType = {
     selected: 'default',
-    colorPrimary: "#0D6EFD",
+    colorPrimary: "#5cc5f9",
     space: {
         size: "middle",
       },
@@ -29,8 +28,8 @@ const themeSlice = createSlice({
     initialState,
     reducers: {
         changeTheme: (state, {payload}) => {
-            state.selected = payload;
-        }
+            state.selected = payload; 
+        }          
     }
 });
 

@@ -1,12 +1,12 @@
 import { Router, StoreProvider, ThemeProvider } from "components/wrapper";
-import "./styles/App.scss";
-import { pagePath } from "constants";
+import "./styles/App.less";
+import { pagePaths } from "constants";
 
 function App() {
   return (
     <StoreProvider>
       <ThemeProvider>
-        <Router defaultRoute={pagePath.home} />
+        <Router defaultRoute={pagePaths.home} />
       </ThemeProvider>
     </StoreProvider>
   );

@@ -7,5 +7,5 @@ const SettingPage: React.FC<SettingPageProps> = (props) => {
     <div>SettingPage</div>
   )
 }
-
+ 
 export default SettingPage

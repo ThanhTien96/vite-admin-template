@@ -13,8 +13,8 @@ interface ThemeSliceStateType {
 
 
 const initialState: ThemeSliceStateType = {
-    selected: 'default',
-    colorPrimary: "#5cc5f9",
+    selected: 'dark',
+    colorPrimary: "#fff",
     space: {
         size: "middle",
       },

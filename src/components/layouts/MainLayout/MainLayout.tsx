@@ -67,7 +67,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                 height: 32,
               }}
             />
-            <SearchEngine />
+            <SearchEngine onSearch={(value: string) => console.log(value)} />
           </div>
           {/* left items */}
           <div className="flex justify-end items-center gap-4">

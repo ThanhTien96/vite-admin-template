@@ -4,10 +4,12 @@ import {
   SettingOutlined,
   LogoutOutlined,
   UserOutlined,
+  InfoCircleOutlined,
 } from "@ant-design/icons";
 import { Avatar, Button, Divider, Popover, Space, Typography } from "antd";
 import { useNavigate } from "react-router";
 import { pagePaths } from "constants";
+import clsx from "clsx";
 
 const { Text } = Typography;
 
@@ -15,6 +17,7 @@ interface MenuItemProps {
   key: string;
   label: string;
   icon?: React.ReactNode;
+  className?: string;
   onClick?: React.MouseEventHandler<HTMLElement>;
 }
 
@@ -36,7 +39,7 @@ const Menu = ({ items }: MenuProps) => {
               icon={ele.icon}
               onClick={ele.onClick}
               key={ele.key}
-              className="w-full text-start"
+              className={clsx(ele.className, "w-full text-start")}
             >
               {ele.label}
             </Button>
@@ -70,13 +73,14 @@ const AccountButton = () => {
     {
       key: "help",
       label: "Help",
-      icon: <ProfileOutlined />,
+      icon: <InfoCircleOutlined />,
     },
     null,
     {
       key: "logout",
       label: "Logout",
       icon: <LogoutOutlined />,
+      className: 'text-red-500'
     },
   ];
 

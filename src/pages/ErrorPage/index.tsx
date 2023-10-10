@@ -9,7 +9,6 @@ interface StatusErrorPageType {
 
 const renderErrorPage = (props: ErrorPageProps): React.ReactElement => (<ErrorPage {...props} />);
 
-
 const Page: StatusErrorPageType = {
     403: () => renderErrorPage({
         title: "403",

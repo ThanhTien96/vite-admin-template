@@ -11,6 +11,7 @@ import {
 import { useNavigate } from "react-router";
 const { Header, Sider, Content } = Layout;
 import "./AppLayout.style.less";
+import { pagePaths } from "constants";
 
 type MainLayoutProps = {
   children: React.ReactNode;
@@ -46,7 +47,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
           className="border-none"
           mode="inline"
           onClick={handleNavigate}
-          defaultSelectedKeys={["1"]}
+          defaultSelectedKeys={[pagePaths.home]}
           items={menus}
         />
       </Sider>

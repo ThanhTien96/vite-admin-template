@@ -1,6 +1,8 @@
 import {
   HelmetProvider,
+  MessageProvider,
   Router,
+  SharedProvider,
   StoreProvider,
   ThemeProvider,
 } from "components/wrapper";
@@ -12,7 +14,11 @@ function App() {
     <StoreProvider>
       <HelmetProvider>
         <ThemeProvider>
-          <Router defaultRoute={pagePaths.home} />
+          <MessageProvider>
+            <SharedProvider>
+            <Router defaultRoute={pagePaths.home} />
+            </SharedProvider>
+          </MessageProvider>
         </ThemeProvider>
       </HelmetProvider>
     </StoreProvider>

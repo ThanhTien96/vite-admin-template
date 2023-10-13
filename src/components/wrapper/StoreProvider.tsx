@@ -5,7 +5,7 @@ type StoreProviderProps = {
     children?: React.ReactNode;
 }
 
-const StoreProvider: React.FC<StoreProviderProps> = ({children}) => {
+const StoreProvider= ({children}: StoreProviderProps) => {
   return (
     <Provider store={store}>
         {children}

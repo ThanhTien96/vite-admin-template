@@ -12,7 +12,7 @@ export default defineConfig({
   server: {
     open: true,
     host: true,
-    port: 3030,
+    port: 3000,
   },
   css: {
     preprocessorOptions: {

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
-import { Layout, Menu, Button, theme, Typography } from "antd";
+import { Layout, Menu, Button, theme } from "antd";
 import {
   NotificationButton,
   SearchEngine,
@@ -9,11 +9,8 @@ import {
   AccountButton,
 } from "./partials";
 import { useNavigate } from "react-router";
-import { Footer } from "antd/es/layout/layout";
-import { COPY_RIGHT } from "constants";
 const { Header, Sider, Content } = Layout;
 import "./AppLayout.style.less";
-import { useAppSelector } from "store";
 
 type MainLayoutProps = {
   children: React.ReactNode;
@@ -76,12 +73,9 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
             <AccountButton />
           </div>
         </Header>
-        <Content className="h-auto overflow-y-scroll main-container">
+        <Content  className="flex flex-col px-4">
           {children}
-        </Content>
-        <Footer style={{ textAlign: "center", padding: 5 }}>
-          {COPY_RIGHT}
-        </Footer>
+        </Content> 
       </Layout>
     </Layout>
   );

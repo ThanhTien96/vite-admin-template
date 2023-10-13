@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   ProfileOutlined,
   SettingOutlined,
@@ -68,7 +68,7 @@ const AccountButton = () => {
       key: "setting",
       label: "Setting",
       icon: <SettingOutlined />,
-      onClick: () => handleNavigate(pagePaths.setting)
+      onClick: () => handleNavigate(`${pagePaths.setting}/${pagePaths.account}`)
     },
     {
       key: "help",

@@ -3,7 +3,7 @@ import clsx from 'clsx';
 
 const {Text} = Typography;
 
-type MenuProps = {
+export type TMenuProps = {
     title?: string;
     size?: "small" | "large" | "medium";
     direction?: "horizontal" | "vertical";
@@ -11,7 +11,7 @@ type MenuProps = {
     selected?: string;
 }
 
-const Menu = (props: MenuProps) => {
+const Menu = (props: TMenuProps) => {
     const {title, size, direction = "vertical", items, selected} = props;
    
   const getDefaultItems: (props: ButtonProps) => ButtonProps = (items) => {

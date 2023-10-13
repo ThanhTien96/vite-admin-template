@@ -8,7 +8,9 @@ import { NotFoundPage } from "pages";
 const Home = React.lazy(() => import('pages/HomePage'));
 const Login = React.lazy(() => import('pages/LoginPage'));
 const Setting = React.lazy(() => import('pages/SettingPage'));
-
+const Appearence = React.lazy(() => import("pages/SettingPage/subsContent/AppearanceSetting"));
+const Account = React.lazy(() => import("pages/SettingPage/subsContent/AccountSetting"));
+const Profile = React.lazy(() => import("pages/ProfilePage"));
 
 const extendedRoutes: RouteObject[] = [
     {
@@ -18,7 +20,24 @@ const extendedRoutes: RouteObject[] = [
     },
     {
         path: pagePaths.setting,
-        element: <Setting />
+        element: (<Setting>
+            <Outlet />
+        </Setting>),
+        children: [
+            {
+                index: true,
+                path: pagePaths.account,
+                element: <Account />
+            },
+            {
+                path: pagePaths.appearance,
+                element:<Appearence />
+            }
+        ]
+    },
+    {
+        path: pagePaths.profile,
+        element: <Profile />
     }
 ];
 

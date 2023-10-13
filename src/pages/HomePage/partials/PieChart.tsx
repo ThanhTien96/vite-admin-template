@@ -1,5 +1,6 @@
 import { Pie, PieConfig, measureTextWidth } from "@ant-design/plots";
 import data from "./data";
+import { useAppSelector } from "store";
 
 function renderStatistic(containerWidth: number, text: string, style: any) {
   const { width: textWidth, height: textHeight } = measureTextWidth(
@@ -29,6 +30,7 @@ function renderStatistic(containerWidth: number, text: string, style: any) {
 }
 
 const PieChart = () => {
+  const {colorPrimary} = useAppSelector(state => state.app.theme)
   const pieConfig: PieConfig = {
     appendPadding: 10,
     data: data.pieData,
@@ -58,7 +60,7 @@ const PieChart = () => {
       offset: "-50%",
       style: {
         textAlign: "center",
-        color: "#fff",
+        color: colorPrimary,
       },
       autoRotate: false,
       content: "{value}",
@@ -66,7 +68,7 @@ const PieChart = () => {
     statistic: {
       title: {
         style: {
-          color: "#fff",
+          color: colorPrimary,
         },
         offsetY: -4,
         customHtml: (container, view, datum) => {
@@ -82,7 +84,7 @@ const PieChart = () => {
         offsetY: 4,
         style: {
           fontSize: "18px",
-          color: "#fff",
+          color: colorPrimary,
         },
         customHtml: (container, view, datum, xdata) => {
           const { width } = container.getBoundingClientRect();

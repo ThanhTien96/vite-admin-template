@@ -14,7 +14,7 @@ interface ThemeSliceStateType {
 
 const initialState: ThemeSliceStateType = {
     selected: 'dark',
-    colorPrimary: "#fff",
+    colorPrimary: "#39caf5",
     space: {
         size: "middle",
       },
@@ -29,12 +29,16 @@ const themeSlice = createSlice({
     reducers: {
         changeTheme: (state, {payload}) => {
             state.selected = payload; 
+        },
+        changeColorPrimary: (state, {payload}) => {
+            state.colorPrimary = payload;
         }          
     }
 });
 
 export const {
-    changeTheme
+    changeTheme,
+    changeColorPrimary
 } = themeSlice.actions;
 
 export default themeSlice.reducer;

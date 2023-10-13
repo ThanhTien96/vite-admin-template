@@ -1,12 +1,9 @@
-import { Statistic, theme } from "antd";
-import { ArrowUpOutlined } from "@ant-design/icons";
+
 import { Column } from "@ant-design/plots";
 import data from "./data";
 
-const { useToken } = theme;
-
 const ColumnChart = () => {
-  const config = useToken();
+
   const chartConfig = {
     data: data.columnData,
     isGroup: true,
@@ -32,17 +29,7 @@ const ColumnChart = () => {
     },
   };
   return (
-    <div>
-      <Statistic
-        title="Active"
-        value={11.28}
-        precision={2}
-        valueStyle={{ color: config.token.colorSuccess }}
-        prefix={<ArrowUpOutlined />}
-        suffix="%"
-      />
-      <Column {...chartConfig} />
-    </div>
+    <Column style={{height: 300}} {...chartConfig} />
   );
 };
 

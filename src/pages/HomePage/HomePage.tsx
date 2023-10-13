@@ -1,7 +1,6 @@
 import { PlainLayout } from "components/layouts/ChildLayout/PlainLayout";
 import {
   ColumnChart,
-  GaugeBox,
   PieChart,
   TinyChart,
   WatchTable,

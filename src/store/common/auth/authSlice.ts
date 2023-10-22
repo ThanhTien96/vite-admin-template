@@ -1,16 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { IS_AUTH } from "constants/auth.constant";
+import { EIS_AUTH } from "constants/auth.constant";
 
 
-export interface AuthSliceProps {
+export interface IAuthSliceProps {
     loading: boolean,
-    status: IS_AUTH.auth | IS_AUTH.unAuth,
+    status: EIS_AUTH.auth | EIS_AUTH.unAuth,
     profile?: any;
 }
 
-const initialState: AuthSliceProps = {
+const initialState: IAuthSliceProps = {
     loading: false,
-    status: IS_AUTH.auth,
+    status: EIS_AUTH.auth,
     profile: undefined
 };
 

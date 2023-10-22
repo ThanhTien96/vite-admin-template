@@ -13,11 +13,11 @@ const { Header, Sider, Content } = Layout;
 import "./AppLayout.style.less";
 import { pagePaths } from "constants";
 
-type MainLayoutProps = {
+type TMainLayoutProps = {
   children: React.ReactNode;
 };
 
-const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
+const MainLayout: React.FC<TMainLayoutProps> = ({ children }) => {
   const [collapsed, setCollapsed] = useState(false);
   const navigate = useNavigate();
   const { token } = theme.useToken();

@@ -1,6 +1,7 @@
 
 import { combineReducers } from "@reduxjs/toolkit";
 import app from './app';
+import common from './common';
 
 interface AsyncReducersProps {
     [key: string]: any
@@ -8,6 +9,7 @@ interface AsyncReducersProps {
 
 const rootReducer = {
     app,
+    common,
 };
 
 const createReducer = (asyncReducers?: AsyncReducersProps) => combineReducers({

@@ -1,4 +1,5 @@
 import {
+  FetcherProvider,
   HelmetProvider,
   MessageProvider,
   Router,
@@ -12,15 +13,17 @@ import { pagePaths } from "constants";
 function App() {
   return (
     <StoreProvider>
-      <HelmetProvider>
-        <ThemeProvider>
-          <MessageProvider>
-            <SharedProvider>
-            <Router defaultRoute={pagePaths.home} />
-            </SharedProvider>
-          </MessageProvider>
-        </ThemeProvider>
-      </HelmetProvider>
+      <FetcherProvider>
+        <HelmetProvider>
+          <ThemeProvider>
+            <MessageProvider>
+              <SharedProvider>
+                <Router defaultRoute={pagePaths.home} />
+              </SharedProvider>
+            </MessageProvider>
+          </ThemeProvider>
+        </HelmetProvider>
+      </FetcherProvider>
     </StoreProvider>
   );
 }

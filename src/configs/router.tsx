@@ -4,7 +4,7 @@ import React from "react";
 import { MainLayout } from "components/layouts";
 import { NotFoundPage } from "pages";
 import PrivateRoute from "./PrivateRoute";
-import { IS_AUTH } from "constants/auth.constant";
+import { EIS_AUTH } from "constants/auth.constant";
 
 const Home = React.lazy(() => import("pages/HomePage"));
 const Login = React.lazy(() => import("pages/LoginPage"));
@@ -53,7 +53,7 @@ const routes: RouteObject[] = [
     path: pagePaths.default,
     element: (
       <PrivateRoute
-      renderIfTrue={state => state.common.auth.authSlice.status === IS_AUTH.auth}
+      renderIfTrue={state => state.common.auth.status === EIS_AUTH.auth}
       fallbackComponent={<Navigate to={`/${pagePaths.login}`} />}
       >
         <MainLayout>
